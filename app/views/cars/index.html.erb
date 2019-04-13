@@ -1,0 +1,60 @@
+<div class="container-fluid">
+
+  <style>
+  table {
+    border-collapse: collapse;
+  }
+
+  table {
+
+    width: 100%;
+    border: 1px solid black;
+    text-align: center;
+  }
+  th {
+    font-size: 15px;
+    border: 1px solid black;
+    height: 50px;
+    width: 100px;
+  }
+
+  td {
+      border: 1px solid black;
+  }
+  </style>
+
+<p>
+<h1>Cars List</h1>
+</p>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Creation Time</th>
+    <th>User Name</th>
+    <th>Image</th>
+    <th></th>
+  </tr>
+
+  <% @cars.each do |car| %>
+    <tr>
+      <td><%= car.title %></td>
+      <td><%= car.created_at %></td>
+      <td><%= car.user.username %></td>
+      <td><%= image_tag car.image.url(:small) %></td>
+      <td><%= link_to 'Show', car_path(car) %></td>
+    </tr>
+  <% end %>
+</table>
+
+<p><p>
+<% if current_user && current_user.is_admin %>
+<%= link_to 'Add new car', new_car_path %>
+<% end %>
+</p></p>
+
+<p>
+<%= link_to 'Back', root_path %>
+</p>
+
+</div>

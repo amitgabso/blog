@@ -1,0 +1,30 @@
+<div class="container-fluid">
+
+<p>
+<h2>Add New Car</h2>
+</p>
+
+<%= form_with scope: :car, url: cars_path, html: { multipart: true }, local: true do |form| %>
+  <p>
+    <%= form.label :title %><br>
+    <%= form.text_field :title, :required => true %>
+  </p>
+
+  <p>
+    <%= form.label :descreption %><br>
+    <%= form.text_area :descreption %>
+  </p>
+
+  <p>
+    <%= form.label :image %><br>
+    <%= form.file_field :image, :required => true %>
+  </p>
+
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', cars_path %>
+
+</div>

@@ -1,0 +1,17 @@
+<div class="container-fluid">
+  <p><h1>Hello, Leah!</h1></p>
+
+  <%if current_user %>
+  <p>Logged in as: <%= current_user.username %></p>
+  <%if current_user %>
+  <p><%= link_to 'Cars List', cars_path %></p>
+  <% end %>
+  <p><%= link_to 'Sign out', destroy_user_session_path, method: :delete %></p>
+
+  <% else %>
+  <p><%= link_to 'Sign in', new_user_session_path %></p>
+  <p><%= link_to 'Sign up', new_user_registration_path %></p>
+
+  <% end %>
+
+</div>

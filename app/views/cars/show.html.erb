@@ -1,0 +1,30 @@
+<div class="container-fluid">
+
+<p>
+<h2> Your New Car </h2>
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @car.title %>
+</p>
+
+<% unless @car.descreption.blank? %>
+  <p>
+    <strong>Descreption:</strong>
+    <%= @car.descreption %>
+  </p>
+<% end %>
+
+<p>
+  <strong>User Name:</strong>
+  <%= @car.user.username %>
+</p>
+
+<p>
+<%= image_tag @car.image.url(:large) %>
+</p>
+
+<%= link_to 'Back', cars_path %>
+
+</div>
